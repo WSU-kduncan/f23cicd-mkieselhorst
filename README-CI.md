@@ -31,8 +31,9 @@ sudo apt remove docker docker-engine docker.io containerd runc
 2. enter name and description, then set visibility to public and submit
 3. in github repo, go to settings, then secrets, and then add new secret
 4. create new secrets for `DOCKER_USERNAME` and `DOCKER_PASSWORD` and enter their respective values for your account
-5. in github repo, go to actions tab and then click o docker images for the base
-6. add in the docker login, buildx, and build and push actions to the file
+      * personally, i would recommend generating an access token on dockerhub and then using that, because it is way more secure than p[assword authentication
+6. in github repo, go to actions tab and then click o docker images for the base
+7. add in the docker login, buildx, and build and push actions to the file
       * login should have the values `
         name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -40,3 +41,4 @@ sudo apt remove docker docker-engine docker.io containerd runc
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}`
         which leads to your username and password secrets
+8. 
