@@ -1,3 +1,3 @@
 FROM nginx:latest
 WORKDIR /website
-COPY ./index.html /usr/share/nginx/html/index.html
+COPY /website/index.html /usr/share/nginx/html/index.html
