@@ -22,7 +22,8 @@ sudo apt remove docker docker-engine docker.io containerd runc
     *  pulled nginx image with `sudo docker pull httpd`
     *  inside of the dockerfile, i used
         *  `FROM nginx:latest
-            COPY ./index.html /usr/share/nginx/html/index.html`
+WORKDIR /website
+COPY /website/index.html /usr/share/nginx/html/index.html`
     * built the docker image with `sudo docker build -t 3120nginx .`
     * ran image in container with `docker run -it --rm -d -p 8080:80 --name web 3120nginx`
 5. can view it running locally on `http://localhost:8080`
@@ -39,6 +40,5 @@ sudo apt remove docker docker-engine docker.io containerd runc
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}`
-        which leads to your username and password secrets
+          password: ${{ secrets.DOCKERHUB_TOKEN }}` which leads to your username and password secrets
 8. 
