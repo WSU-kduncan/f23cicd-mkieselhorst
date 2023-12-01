@@ -2,7 +2,7 @@
 this project is used to familiarize myself with 
     * Containerizing an application with Docker
     * Automating the project pipeline with GitHub Actions - continuous integration
-    ![workflow diagram]()
+    ![workflow diagram](https://github.com/WSU-kduncan/f23cicd-mkieselhorst/blob/main/image1.png)
 
 # Part 1
 1. created new github repo with link in pilot
