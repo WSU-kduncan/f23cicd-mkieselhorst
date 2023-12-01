@@ -42,3 +42,6 @@ COPY /website/index.html /usr/share/nginx/html/index.html`
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}` which leads to your username and password secrets
 8. image is now pushed to dockerhub [my Repo](https://hub.docker.com/r/kxwell/kxwell-3120repo)
+9. to share without github actions just use `docker image push`/ `docker push`
+* for the workflow, it wwill now build and push to dockerhub on every commit
+* the variables that are custom to my project are the repo name, `DOCKER_USERNAME` and `DOCKER_PASSWORD`
