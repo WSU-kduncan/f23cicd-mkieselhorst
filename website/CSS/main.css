@@ -1,0 +1,58 @@
+div{
+    background-color: gray;
+    border: 3px solid #579555;
+    padding: 11px;
+    background-image: radial-gradient(whitesmoke, #579966);
+}
+
+header{
+    
+    border-bottom: #000 3px solid;
+    
+    
+    padding-bottom: 25px;
+}
+header nav{
+    font-style: italic;
+    background-color: black;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    
+}
+header nav ul{
+    margin:0;
+    padding:0;
+    
+}
+header nav ul li{
+    display: inline;
+    padding: 0px 0px 0px 15px;
+    list-style-type: none;
+    text-decoration: none;
+
+}
+header nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+main article p a{
+    color: darkgreen
+}
+body main article h1{
+    color: aqua;
+}
+main aside ul{
+    border:solid #000 2px;
+    width: 150px;
+    /* list-style: none; */
+    margin-left: 11px;
+    background-color: darkorchid;
+    background-image: radial-gradient(whitesmoke, darkorchid);
+}
+article{
+    float: left;
+}
+aside{
+    float: left;
+}
