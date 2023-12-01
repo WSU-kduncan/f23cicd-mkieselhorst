@@ -1,3 +1,9 @@
+# Description
+this project is used to familiarize myself with 
+    * Containerizing an application with Docker
+    * Automating the project pipeline with GitHub Actions - continuous integration
+    ![workflow diagram]()
+
 # Part 1
 1. created new github repo with link in pilot
 2. create a folder named website and added files for website in it
