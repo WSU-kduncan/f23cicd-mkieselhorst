@@ -41,4 +41,4 @@ COPY /website/index.html /usr/share/nginx/html/index.html`
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}` which leads to your username and password secrets
-8. 
+8. image is now pushed to dockerhub [my Repo](https://hub.docker.com/r/kxwell/kxwell-3120repo)
