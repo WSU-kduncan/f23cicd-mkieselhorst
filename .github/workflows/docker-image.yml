@@ -53,8 +53,9 @@ jobs:
           context: .
           file: website/Dockerfile
           push: true
-          tags: 
-            ${{ steps.meta.outputs.tags }}
+          tags: |
+            kxwell/ceg3120:latest
+            ${{ DOCKER_METADATA_OUTPUT_VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
                 
 
