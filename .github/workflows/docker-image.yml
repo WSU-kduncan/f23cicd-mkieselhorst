@@ -33,8 +33,6 @@ jobs:
           type=ref,event=pr
           type=semver,pattern={{version}}
           
-
-
     
     - 
       name: Docker Login
@@ -55,9 +53,8 @@ jobs:
           context: .
           file: website/Dockerfile
           push: true
-          tags: |
-            kxwell/ceg3120:latest
-            kxwell/ceg3120:${{ steps.meta.outputs.tags }}
+          tags: 
+            kxwell/ceg3120${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
                 
 
