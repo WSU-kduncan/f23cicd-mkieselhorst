@@ -4,3 +4,4 @@
 # Part 1 - Semantic Versioning
 ## Tag Generation
 * in order to generate a tag, 
+* behaviuor of workflow
