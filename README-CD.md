@@ -27,3 +27,27 @@ In order to generate a tag, use `git tag` followed by the tag you wish to use, o
        3. with the tags `kxwell/ceg3120:latest` & `kxwell/ceg3120:${{ steps.meta.outputs.version }}` from the meta id output
        4. then uses the labels from the meta id output as well
 * [Dockerhub Repo](https://hub.docker.com/r/kxwell/ceg3120/tags)
+
+# part 2 - Deployment
+### docker installation
+*  ran the following to install dependencies
+      *  `sudo apt update && sudo apt upgrade -y
+sudo apt remove docker docker-engine docker.io containerd runc
+    sudo apt-get install \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        gnupg \
+        lsb-release -y`
+*  added the docker repository to the source list using
+      *  `sudo mkdir -p /etc/apt/keyrings` and then `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg`
+*  set up the repository using
+      *  `echo \ deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
+*  installed the docker engine with
+      *  `sudo apt-get update	sudo apt-get install docker-ce docker-ce-cli containerd.io -y`
+*  set the permissions to ruin docker with
+      *  `sudo usermod -aG docker $USER`
+*  installed docker compose with
+      *  `sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose sudo chmod +x /usr/local/bin/docker-compose sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose`
+*  run docker engine with
+      *  `sudo service docker start`
