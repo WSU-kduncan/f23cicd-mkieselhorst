@@ -55,7 +55,7 @@ jobs:
           push: true
           tags: |
             kxwell/ceg3120:latest
-            ${{ steps.meta.outputs.version }}
+            kxwell/ceg3120:${{ steps.meta.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
                 
 
