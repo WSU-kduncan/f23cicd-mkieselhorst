@@ -54,7 +54,7 @@ jobs:
           file: website/Dockerfile
           push: true
           tags: 
-            kxwell/ceg3120${{ steps.meta.outputs.tags }}
+            ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
                 
 
