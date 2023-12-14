@@ -1,0 +1,11 @@
+#!/bin/sudo bash
+        echo "stopping current container for kxwell/ceg3120:latest"
+
+         docker stop ceg3120
+        echo "removing kxwell/ceg3120:latest"
+         docker rm ceg3120
+
+        echo "pulling newest version"
+         docker image pull kxwell/ceg3120:latest
+        echo "running new container with kxwell/ceg3120:latest"
+         docker run -d -p 8080:80 --name ceg3120 kxwell/ceg3120:latest
