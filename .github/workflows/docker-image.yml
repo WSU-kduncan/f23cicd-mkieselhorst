@@ -28,10 +28,10 @@ jobs:
         flavor: latest=true
         tags: |
           
-          type=edge,branch=main
-          type=ref,event=branch
-          type=ref,event=pr
-          type=semver,pattern={{version}}
+          type=edge,branch=main,prefix=,suffix=
+          type=ref,event=branch,prefix=,suffix=
+          type=ref,event=pr,prefix=,suffix=
+          type=semver,pattern={{version}},prefix=,suffix=
           
     
     - 
