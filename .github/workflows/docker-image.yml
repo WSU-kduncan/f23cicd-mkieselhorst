@@ -44,10 +44,6 @@ jobs:
     -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-    - name: Tags
-      run: |           
-            docker tag kxwell-3120repo ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:${{ steps.meta.outputs.tags }}
-            docker tag kxwell-3120repo ${{ secrets.DOCKER_USER }}/kxwell-3120repo:latest
     -
         name: Build and push
         uses: docker/build-push-action@v5
