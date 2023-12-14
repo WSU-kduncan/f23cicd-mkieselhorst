@@ -44,6 +44,10 @@ jobs:
     -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+    - name: Tags
+      run: |           
+            docker tag front ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:${{ github.sha }}
+            docker tag front ${{ secrets.DOCKER_USER }}/kxwell-3120repo:latest
     -
         name: Build and push
         uses: docker/build-push-action@v5
@@ -51,7 +55,7 @@ jobs:
           context: .
           file: website/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:latest,${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:latest,${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
                 
 
