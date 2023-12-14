@@ -51,7 +51,7 @@ jobs:
           # set latest tag for master branch
           flavor: latest=true
           tags: |
-            type=schedule
+
             type=ref,event=branch
             type=ref,event=tag
             type=ref,event=pr
