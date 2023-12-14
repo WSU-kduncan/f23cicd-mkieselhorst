@@ -27,7 +27,6 @@ jobs:
         # set latest tag for master branch
         flavor: latest=true
         tags: |
-            type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
