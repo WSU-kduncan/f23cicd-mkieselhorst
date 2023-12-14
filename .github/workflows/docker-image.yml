@@ -50,4 +50,5 @@ jobs:
             type=ref,event=branch
             type=ref,event=tag
             type=ref,event=pr
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{raw}},value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}},enable={{is_default_branch}}
