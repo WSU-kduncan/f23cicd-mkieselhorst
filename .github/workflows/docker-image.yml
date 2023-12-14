@@ -49,6 +49,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           # set latest tag for master branch
+          flavor: latest=true
           tags: |
             type=schedule
             type=ref,event=branch
