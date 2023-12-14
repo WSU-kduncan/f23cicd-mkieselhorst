@@ -51,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./website/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: |
             kxwell/ceg3120:latest
