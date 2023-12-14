@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     tags:
-      - 'V*'
+      - 'V*.*.*'
   pull_request:
     branches: [ "main" ]
 
@@ -38,7 +38,11 @@ jobs:
           context: .
           file: website/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:latest
+          tags: |
+                ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:latest
+                ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+                
     - 
         name: Docker Metadata action
         uses: docker/metadata-action@v5.3.0
@@ -50,5 +54,7 @@ jobs:
             type=ref,event=branch
             type=ref,event=tag
             type=ref,event=pr
-            type=semver,pattern={{raw}},value=latest,enable={{is_default_branch}}
-            type=semver,pattern={{version}},enable={{is_default_branch}}
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
