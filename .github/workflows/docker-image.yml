@@ -27,8 +27,10 @@ jobs:
         # set latest tag for master branch
         flavor: latest=true
         tags: |
+            type=ref,event=branch
             type=ref,event=pr
-            type=ref,event=tag
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
             
     - 
       name: Docker Login
@@ -49,7 +51,7 @@ jobs:
           context: .
           file: website/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:latest,${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/kxwell-3120repo:latest,${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
                 
 
