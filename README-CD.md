@@ -1,6 +1,7 @@
 # Objectives
 * Implement semantic versioning for images using git tag metadata in Actions
 * Use webhooks to keep production up to date
+![diagram](placeholder)
 # Part 1 - Semantic Versioning
 ## Tag Generation
 In order to generate a tag, use `git tag` followed by the tag you wish to use, or you can go into your github repository, then releases, then "draft a new release", then select "create new tag on publish" and enter tag you wish to use.
@@ -66,11 +67,18 @@ sudo apt remove docker docker-engine docker.io containerd runc
 ## webhook
 ### installation
 * `sudo apt-get install webhook`
-* in `/etc/webhook.conf` i entered this as my code:
-  ![webhook.conf](placeholder)
-* 
+* in `/etc/webhook.conf` i entered this as my code as my definition file:
+  ![webhook definition file](placeholder)
+* it defines the command to execute, working dir, repsoinse message, then looks for matching payloads sent to the working webhook. If there is one, and it supplies the necessary secret, then it runs the script defined earlier
 * created a new dir in home called hooks, then another called ceg3120 inside of that
+* the file should be located in `/etc/`
 * then inside ceg3120/ i moved the `imagepuller` script
 * created another dir but this time in `/var/` called `ceg3120` which is designated as the working dir in the webhook.conf file
 * to run it, i used `/usr/bin/webhook -nopanic -hooks /etc/webhook.conf`
 * after that, it was setup on my instance ip, and port 9000
+### configuration in github
+* in github repo, go to settings, webhooks, and create new webhook
+* here, enter in the address, and name it, then supply the secret
+* then select the settings to apply it ( just set to deploy on run)
+### Proof
+* recorded video of proof submitted on pilot.
