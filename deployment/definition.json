@@ -1,0 +1,49 @@
+[
+  {
+    "id": "redeploy-container",
+    "execute-command": "/home/ubuntu/hooks/ceg3120/imagepuller",
+    "command-working-directory": "/var/ceg3120/",
+    "http-methods": ["POST"],
+    "response-message": "Executing deploy script...",
+    "pass-arguments-to-command":
+    [
+      {
+        "source": "payload",
+        "name": "head_commit.id"
+      },
+      {
+        "source": "payload",
+        "name": "pusher.name"
+      },
+      {
+        "source": "payload",
+        "name": "pusher.email"
+      }
+    ],
+    "trigger-rule": {
+      "or": [
+        {
+          "match": {
+            "type": "payload-hmac-sha1",
+            "secret": "password",
+            "parameter":
+            {
+              "source": "header",
+              "name": "X-Hub-Signature"
+            }
+          }
+        },
+        {
+          "match": {
+            "type": "value",
+            "value": "refs/heads/main",
+            "parameter": {
+              "source": "payload",
+              "name": "ref"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
