@@ -51,7 +51,7 @@ sudo apt remove docker docker-engine docker.io containerd runc
       *  `sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose sudo chmod +x /usr/local/bin/docker-compose sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose`
 *  run docker engine with
       *  `sudo service docker start`
-### restart script
+## restart script
 ![image of pulling script](https://github.com/WSU-kduncan/f23cicd-mkieselhorst/blob/main/imagepuller.png)
 1. the script uses the first line of `#!bin/sudo bash`
   1. this is because it runs the following commands as sudo
@@ -63,3 +63,14 @@ sudo apt remove docker docker-engine docker.io containerd runc
   1. to pull the newest image of the repo using the tag `:latest`
 5. runs `docker run -d -p 8080:80 --name ceg3120 kxwell/ceg3120:latest`
   1. to run the container on port 8080, using the name "ceg3120" to identify it for the next time the script is run, and then defines the image
+## webhook
+### installation
+* `sudo apt-get install webhook`
+* in `/etc/webhook.conf` i entered this as my code:
+  ![webhook.conf](placeholder)
+* 
+* created a new dir in home called hooks, then another called ceg3120 inside of that
+* then inside ceg3120/ i moved the `imagepuller` script
+* created another dir but this time in `/var/` called `ceg3120` which is designated as the working dir in the webhook.conf file
+* to run it, i used `/usr/bin/webhook -nopanic -hooks /etc/webhook.conf`
+* after that, it was setup on my instance ip, and port 9000
