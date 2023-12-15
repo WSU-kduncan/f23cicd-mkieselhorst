@@ -2,8 +2,11 @@ name: Docker Image CI
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
 
 jobs:
 
@@ -56,6 +59,11 @@ jobs:
           tags: |
             kxwell/ceg3120:latest
             kxwell/ceg3120:${{ steps.meta.outputs.version }}
-          labels: ${{ steps.meta.outputs.labels }}
-                
+          labels: ${{ steps.meta.outputs.labels }}          
 
+    - 
+        name: Deploy docker container webhook
+        uses: joelwmale/webhook-action@master
+        env:
+            WEBHOOK_URL: ${{ secrets.WEBHOOK_URL  }}
+            data: "{ 'myField': 'myFieldValue'}"
